@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timetracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div>
+          <h1>Timetracker</h1>
+          <p>Einfach Zeiten erfassen, speichern und auswerten.</p>
+        </div>
+        <div class="badge">copywrite by Heiko Gabler</div>
+      </header>
+
+      <section class="card">
+        <h2>Neue Zeit erfassen</h2>
+        <div id="status" class="status hidden"></div>
+        <form id="entry-form" autocomplete="off">
+          <div class="grid">
+            <label>
+              Datum
+              <input type="date" id="date" required />
+            </label>
+            <label>
+              Start
+              <input type="time" id="startTime" required />
+            </label>
+            <label>
+              Ende
+              <input type="time" id="endTime" required />
+            </label>
+            <label>
+              Pause (Min.)
+              <input type="number" id="pauseMinutes" min="0" value="0" />
+            </label>
+            <label class="span-2">
+              Projekt
+              <input type="text" id="project" placeholder="z. B. Kunde A" required />
+            </label>
+            <label class="span-2">
+              Notiz
+              <input type="text" id="note" placeholder="optional" />
+            </label>
+          </div>
+          <div class="actions">
+            <div class="duration">
+              <span>Arbeitszeit</span>
+              <strong id="durationLabel">0:00 h</strong>
+            </div>
+            <button type="submit">Speichern</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>Erfasste Zeiten</h2>
+          <div class="summary">
+            <span>Gesamt</span>
+            <strong id="totalLabel">0:00 h</strong>
+          </div>
+        </div>
+        <div class="table">
+          <div class="table-head">
+            <span>Datum</span>
+            <span>Zeitraum</span>
+            <span>Pause</span>
+            <span>Projekt</span>
+            <span>Dauer</span>
+            <span>Notiz</span>
+          </div>
+          <div id="entries"></div>
+        </div>
+      </section>
+
+      <footer>
+        <small>copywrite by Heiko Gabler</small>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
